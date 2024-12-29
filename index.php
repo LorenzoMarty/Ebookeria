@@ -141,7 +141,7 @@
 
     <div class="hero">
         <h1><img src="img/logo.png" width="164px" height="164px"></h1>
-        <p>Explore e descubra uma variedade de ebooks para aprimorar seus conhecimentos.</p>
+        <p>E-bookeria a loja de ebooks que você precisa!</p>
     </div>
 
     <!-- Content -->
