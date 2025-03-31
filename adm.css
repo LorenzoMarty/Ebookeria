@@ -1,0 +1,294 @@
+/* Estilos gerais */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-weight: 300;
+}
+
+/* Tema escuro - por padrão */
+body.dark-theme {
+    background: radial-gradient(circle, #1c1c1c 0%, #141414 100%);
+    color: #ffffff;
+}
+
+/* Tema claro */
+body.light-theme {
+    background: radial-gradient(circle, #f0f0f0 0%, #e0e0e0 100%);
+    color: #333;
+}
+
+/* Contêiner */
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+body.dark-theme .container {
+    background: #1e1e1e;
+}
+
+body.light-theme .container {
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+h3.center {
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(255, 64, 129, 0.8);
+    margin-bottom: 30px;
+}
+
+body.dark-theme h3.center {
+    color: #ff4081;
+}
+
+body.light-theme h3.center {
+    color: #ff4081;
+}
+
+/* Painel do Card */
+.card-panel {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+body.dark-theme .card-panel {
+    background: linear-gradient(145deg, #1e1e1e, #252525);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7), -10px -10px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.light-theme .card-panel {
+    background: linear-gradient(145deg, #ffffff, #f7f7f7);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Campos de entrada */
+.input-field input[type="text"], .input-field input[type="file"] {
+    background: #333;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+}
+
+body.light-theme .input-field input[type="text"], .input-field input[type="file"] {
+    background: #f4f4f4;
+    color: #333;
+}
+
+.input-field label {
+    color: #ff4081;
+}
+
+.file-field .btn {
+    background-color: #840143;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    line-height: unset;
+}
+
+.file-field .btn:hover {
+    background-color: #a50153;
+}
+
+.file-path-wrapper input {
+    background: #333;
+    color: #fff;
+    border-radius: 8px;
+}
+
+/* Botões */
+.btn {
+    background: linear-gradient(145deg, #840143, #a50153);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+body.light-theme .btn {
+    background: linear-gradient(145deg, #ff4081, #f50057);
+    color: #ffffff;
+}
+
+.btn:hover {
+    box-shadow: 0 0 15px #ff4081;
+    transform: translateY(-3px);
+}
+
+/* Tabelas */
+table.striped {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table.striped th, table.striped td {
+    padding: 12px;
+    text-align: left;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-bottom: 1px solid #444;
+}
+
+body.light-theme table.striped th, body.light-theme table.striped td {
+    background-color: #ffffff;
+    color: #333;
+}
+
+table.striped th {
+    background-color: #840143;
+    color: #fff;
+}
+
+body.light-theme table.striped th {
+    background-color: #ff4081;
+    color: #fff;
+}
+
+table.striped tr:hover {
+    background-color: #252525;
+}
+
+body.light-theme table.striped tr:hover {
+    background-color: #f7f7f7;
+}
+
+/* Cartões */
+.card {
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5), -10px -10px 20px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0 15px 30px 15px;
+}
+
+body.dark-theme .card {
+    background: linear-gradient(145deg, #1c1c1c, #232323);
+}
+
+body.light-theme .card {
+    background: linear-gradient(145deg, #ffffff, #f7f7f7);
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.card-image img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+    transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+.card-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.9);
+}
+
+.card:hover .overlay {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Rodapé */
+footer {
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}
+
+body.dark-theme footer {
+    background-color: #840143;
+}
+
+body.light-theme footer {
+    background-color: #ff4081;
+}
+
+footer p {
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: #840143;
+    margin: 40px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #ff4081;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #f0f0f0;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle i {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}

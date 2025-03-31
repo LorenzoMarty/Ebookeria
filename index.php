@@ -22,105 +22,36 @@
         <p>E-bookeria, a loja de ebooks que você precisa!</p>
     </div>
 
+    <?php
+    require_once "conexao.php";
+    $conexao = conectar();
+
+    // Modificado para ordenar os ebooks pela coluna 'ordem'
+    $sql = "SELECT * FROM ebooks ORDER BY ordem ASC";
+    $result = executarSQL($conexao, $sql);
+    ?>
+
     <!-- Content Section -->
     <div class="content">
         <div class="container" id="ebooks">
             <h2 class="section-title">Ebooks</h2>
             <hr>
             <div class="row">
-                <!-- Card 1 -->
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/ebook/atividadescristas.png" alt="Ebook Atividades Cristãs"
-                                class="responsive-img">
-                            <div class="overlay">
-                                <p>Atividades Cristãs</p>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="<?= $row['imagem']; ?>" alt="<?= $row['titulo']; ?>" class="responsive-img">
+                                <div class="overlay">
+                                    <p><?= $row['titulo']; ?></p>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <a href="<?= $row['link']; ?>" class="btn waves-effect waves-light">Acesse</a>
                             </div>
                         </div>
-                        <div class="card-content">
-                            <a href="https://www.clickproduto.com.br/AtividadesCristas"
-                                class="btn waves-effect waves-light">Acesse</a>
-                        </div>
                     </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/ebook/pequenosOracao.png" alt="Ebook Pequenos em Oração"
-                                class="responsive-img">
-                            <div class="overlay">
-                                <p>Pequenos em Oração</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <a href="https://www.clickproduto.com.br/EbookPequenosEmOracoes"
-                                class="btn waves-effect waves-light">Acesse</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/ebook/amoremchamas.png" alt="Ebook Amor em Chamas" class="responsive-img">
-                            <div class="overlay">
-                                <p>Amor em Chamas</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <a href="https://www.clickproduto.com.br/EbookAmorEmChamas"
-                                class="btn waves-effect waves-light">Acesse</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/ebook/pascoa.png" alt="Ebook Páscoa" class="responsive-img">
-                            <div class="overlay">
-                                <p>Páscoa</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <a href="https://www.clickproduto.com.br/EbookPascoa"
-                                class="btn waves-effect waves-light">Acesse</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/ebook/2000desenhos.png" alt="Ebook 2000 Desenhos" class="responsive-img">
-                            <div class="overlay">
-                                <p>2000 Desenhos para colorir</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <a href="https://www.clickproduto.com.br/EbookDesenhos"
-                                class="btn waves-effect waves-light">Acesse</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 6 -->
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="img/ebook/materiaisespeciais.png" alt="Ebook Materiais Especiais"
-                                class="responsive-img">
-                            <div class="overlay">
-                                <p>Materiais Especiais</p>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <a href="https://www.clickproduto.com.br/EbookMateriaisEspeciais"
-                                class="btn waves-effect waves-light">Acesse</a>
-                        </div>
-                    </div>
-                </div>
+                <?php endwhile; ?>
             </div>
 
             <div class="theme-toggle">
@@ -128,7 +59,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Footer -->
     <div class="footer">
@@ -178,22 +108,21 @@
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.querySelector(".theme-toggle");
-    const themeIcon = document.getElementById("theme-icon");
+        const themeToggle = document.querySelector(".theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
 
-    // Alterna entre os temas claro e escuro
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-theme");
+        // Alterna entre os temas claro e escuro
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
 
-        // Altera o ícone conforme o tema
-        if (document.body.classList.contains("dark-theme")) {
-            themeIcon.textContent = "brightness_7"; // Ícone para tema claro
-        } else {
-            themeIcon.textContent = "brightness_4"; // Ícone para tema escuro
-        }
+            // Altera o ícone conforme o tema
+            if (document.body.classList.contains("dark-theme")) {
+                themeIcon.textContent = "brightness_7"; // Ícone para tema claro
+            } else {
+                themeIcon.textContent = "brightness_4"; // Ícone para tema escuro
+            }
+        });
     });
-});
-
 </script>
 
 </html>
