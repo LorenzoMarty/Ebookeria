@@ -1,4 +1,4 @@
-# Ebookeria
+# Ebookeria - *⚠️ Projeto Legado*
 
 Ebookeria é uma plataforma para gerenciar e compartilhar eBooks. 
 O sistema permite que usuários explorem uma coleção de livros digitais, visualizem detalhes sobre cada ebook e façam sua compra em links externos.
